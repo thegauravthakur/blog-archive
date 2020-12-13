@@ -5,10 +5,10 @@ const Nav = () => {
     <nav className='flex justify-between px-5 md:px-10 lg:px-20 bg-gray-800 text-white '>
       <p className='self-center font-bold text-lg text-gray-300'>Gaurav's Blog</p>
       <div className='grid grid-cols-4 hidden sm:block'>
-        <button className='py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white'>React</button>
-        <button className='py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white'>Python</button>
-        <button className='py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white'>C++</button>
-        <button className='py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white'>JavaScript</button>
+        <button className='py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none'>React</button>
+        <button className='py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none'>Python</button>
+        <button className='py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none'>C++</button>
+        <button className='py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none'>JavaScript</button>
       </div>
       <button
         type={"button"}

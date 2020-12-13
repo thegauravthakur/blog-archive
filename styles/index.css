@@ -15,7 +15,12 @@ body {
 .btn-blue {
   @apply px-4 py-2 font-bold text-white bg-blue-500 rounded;
 }
-
+.content{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */
