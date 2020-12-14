@@ -53,6 +53,7 @@ const PostCard = ({ postDetail }) => {
             element="span"
             truncateText="…"
             text={postDescription}
+            className="font-sans text-md leading-7"
             // textTruncateChild={<a href="#">Read on</a>}
           />
           <button

@@ -12,7 +12,9 @@ const RecentPostArticle = () => {
         height={400}
         alt={""}
       />
-      <h2 className="col-span-2">Best JavaScript Framework to Learn in 2021</h2>
+      <h2 className="col-span-2 text-lg font-semibold">
+        Best JavaScript Framework to Learn in 2021
+      </h2>
     </div>
   );
 };
