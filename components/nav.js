@@ -1,14 +1,34 @@
-import React from 'react';
+import React from "react";
+import { useRouter } from "next/router";
 
 const Nav = () => {
+  const router = useRouter();
   return (
-    <nav className='flex justify-between px-5 md:px-10 lg:px-20 bg-gray-800 text-white '>
-      <p className='self-center font-bold text-lg text-gray-300'>Gaurav's Blog</p>
-      <div className='grid grid-cols-4 hidden sm:block'>
-        <button className='py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none'>React</button>
-        <button className='py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none'>Python</button>
-        <button className='py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none'>C++</button>
-        <button className='py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none'>JavaScript</button>
+    <nav className="flex justify-between px-5 md:px-10 lg:px-20 bg-gray-800 text-white ">
+      <p
+        onClick={() => router.push("/")}
+        className="self-center font-bold text-lg text-gray-300 select-none cursor-pointer"
+      >
+        Gaurav's Blog
+      </p>
+      <div className="grid grid-cols-4 hidden sm:block">
+        <button
+          onClick={() => {
+            window.location.href = "https://gauravthakur.in";
+          }}
+          className="py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none"
+        >
+          Portfolio
+        </button>
+        <button className="py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none">
+          React
+        </button>
+        <button className="py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none">
+          C++
+        </button>
+        <button className="py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none">
+          JavaScript
+        </button>
       </div>
       <button
         type={"button"}

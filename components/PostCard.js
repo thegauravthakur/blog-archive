@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { IoCalendarOutline } from "react-icons/io5";
 import { AiOutlineTags, AiOutlineShareAlt } from "react-icons/ai";
 import { GoCommentDiscussion } from "react-icons/go";
-import Image from "next/image";
 import { useMediaQuery } from "react-responsive";
 import TextTruncate from "react-text-truncate";
 import { useRouter } from "next/router"; // recommend
@@ -38,7 +37,11 @@ const PostCard = ({ postDetail }) => {
       <div className="grid grid-cols-1 sm:grid-cols-5 pt-5 gap-5 ">
         <div className="col-span-2 ">
           <img
-            src={"https://picsum.photos/700/450"}
+            src={
+              "https://picsum.photos/700/450/?random&t=" +
+              new Date().getTime() +
+              ""
+            }
             height={450}
             width={700}
             alt={"post"}
