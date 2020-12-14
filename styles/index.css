@@ -10,6 +10,11 @@ html,
 body {
   background-color: #E0ECF0;
 }
+li {
+  list-style: circle;
+  display: list-item;
+  margin-left: 30px;
+}
 
 /* Write your own custom component styles here */
 .btn-blue {
@@ -21,6 +26,8 @@ body {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

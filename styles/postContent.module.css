@@ -1,0 +1,8 @@
+.content {
+    padding: 40px 0 40px 0;
+    font-size: 1.1rem;
+}
+
+.content > p {
+    padding-bottom: 20px;
+}
