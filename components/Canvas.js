@@ -5,7 +5,7 @@ import { GoCommentDiscussion } from "react-icons/go";
 import PostCard from "./PostCard";
 import firebase from "../firebase/clientApp";
 
-const Canvas = () => {
+const Canvas = ({ loading, setLoading }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -17,10 +17,13 @@ const Canvas = () => {
         const userDocData = userDoc.data();
         temp.push(userDocData);
       });
+      setLoading(false);
       setPosts(temp);
     });
   }, []);
-
+  if (loading) {
+    return <h1>Page is loading...</h1>;
+  }
   return (
     <div className="bg-white  my-14  px-5 md:px-10 py-10 col-span-3 rounded">
       {posts.map((post) => (

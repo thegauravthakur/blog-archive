@@ -28,10 +28,21 @@ export default function IndexPage() {
     }
   }, [pathname]);
   if (loading) {
-    return <h1>Page is Loading...</h1>;
+    return (
+      <div className="flex flex-col min-h-screen">
+        <Nav />
+        <h1 className="flex-1">Page is loading...</h1>
+        <Footer />
+      </div>
+    );
   }
   if (!exist) {
-    return <h1>Page Not Found</h1>;
+    return (
+      <div>
+        <Nav />
+        <h1>Page Not Found</h1>
+      </div>
+    );
   }
   return (
     <div className="flex flex-col min-h-screen">
