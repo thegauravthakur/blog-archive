@@ -18,14 +18,14 @@ const Canvas = ({ loading, setLoading }) => {
         temp.push(userDocData);
       });
       setLoading(false);
-      setPosts(temp);
+      setPosts(temp.reverse());
     });
   }, []);
   if (loading) {
     return <h1>Page is loading...</h1>;
   }
   return (
-    <div className="bg-white  my-14  px-5 md:px-10 py-10 col-span-3 rounded">
+    <div className="bg-white  my-14  px-5 md:px-10 py-10 col-span-3 rounded-lg">
       {posts.map((post) => (
         <PostCard key={post.id} postDetail={post} />
       ))}

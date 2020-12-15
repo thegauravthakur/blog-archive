@@ -1,11 +1,12 @@
 .content {
     padding: 40px 0 40px 0;
-    font-size: 18px;
-    font-family: charter, serif;
+    font-size: 17px;
+    line-height: 30px;
+    /*font-family: charter, serif;*/
 }
 @media (min-width: 768px) {
     .content {
-        font-size: 20px;
+        font-size: 17px;
     }
 }
 .content > p {

@@ -5,6 +5,7 @@ const RecentPostArticle = () => {
   return (
     <div className="pb-5">
       <img
+        className="rounded-lg"
         src={
           "https://picsum.photos/700/400/?random&t=" + new Date().getTime() + ""
         }

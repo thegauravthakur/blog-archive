@@ -14,8 +14,8 @@ export default function IndexPage() {
       <div className="lg:grid lg:grid-cols-4 px-2 md:px-10 lg:px-20 gap-10 flex-1">
         <Canvas loading={loading} setLoading={setLoading} />
         {!loading ? (
-          <div className="rounded">
-            <div className="bg-white my-14 md:px-5 py-10 ">
+          <div className="rounded-lg">
+            <div className="bg-white my-14 md:px-5 py-10 rounded-lg ">
               <h1 className="text-xl pb-5 font-semibold text-center lg:text-left">
                 Recent Posts
               </h1>
