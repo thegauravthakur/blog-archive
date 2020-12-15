@@ -28,7 +28,7 @@ const Canvas = ({ loading, setLoading }) => {
   if (loading) {
     return (
       <div className="col-span-4 mt-10 text-center ">
-        <h1 className="">Page Not Fount</h1>
+        <h1 className="">Page is loading...</h1>
       </div>
     );
   }
