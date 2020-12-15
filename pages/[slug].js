@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Nav from "../components/nav";
 import Canvas from "../components/Canvas";
@@ -15,6 +15,7 @@ export default function IndexPage() {
   const [exist, setExist] = useState(true);
   const [loading, setLoading] = useState(true);
   const [postDetail, setPostDetail] = useState({});
+  const imageRef = useRef();
   useEffect(() => {
     // console.log(window.location.href);
     if (pathname) {
@@ -22,11 +23,14 @@ export default function IndexPage() {
       const ref = db.collection("posts").doc(pathname).get();
       ref.then((snap) => {
         if (!snap.exists) setExist(false);
-        else setPostDetail(snap.data());
+        else {
+          setPostDetail(snap.data());
+        }
         setLoading(false);
       });
     }
   }, [pathname]);
+
   if (loading) {
     return (
       <div className="flex flex-col min-h-screen">
@@ -58,7 +62,25 @@ export default function IndexPage() {
               <p>No Comments</p>
             </div>
           </div>
-          <div className={styles.content}>{parse(postDetail.body)}</div>
+          <div className={styles.content}>
+            {parse(postDetail.body, {
+              replace: (domNode) => {
+                if (domNode.name === "p") {
+                  if (domNode.children[0].name === "img") {
+                    return (
+                      <div className="my-2">
+                        <Image
+                          width={2000}
+                          height={1000}
+                          {...domNode.children[0].attribs}
+                        />
+                      </div>
+                    );
+                  }
+                }
+              },
+            })}
+          </div>
         </div>
         <div className="py-5 bg-white px-2 md:px-10  mb-20">
           <h2 className="text-2xl font-semibold py-5">Related Articles</h2>

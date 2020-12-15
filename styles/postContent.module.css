@@ -1,13 +1,16 @@
 .content {
     padding: 40px 0 40px 0;
-    font-size: 21px;
+    font-size: 18px;
     font-family: charter, serif;
 }
-
-.content > p {
-    padding-bottom: 20px;
+@media (min-width: 768px) {
+    .content {
+        font-size: 20px;
+    }
 }
-
+.content > p {
+    padding-top: 20px;
+}
 .title {
     font-size: 44px;
     font-weight: bold;
