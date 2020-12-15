@@ -19,7 +19,7 @@ const PostCard = ({ postDetail }) => {
     <div className="mb-14">
       <h1
         onClick={() => router.push(id)}
-        className="text-2xl font-semibold text-gray-700 cursor-pointer"
+        className="text-2xl font-semibold text-gray-700 hover:text-red-700 cursor-pointer transition duration-500 ease-in-out"
       >
         {title}
       </h1>
@@ -64,7 +64,7 @@ const PostCard = ({ postDetail }) => {
             // textTruncateChild={<a href="#">Read on</a>}
           />
           <Link href={id}>
-            <button className="focus:outline-none bg-gray-800 text-white py-1 sm:py-2 px-4 rounded-lg mt-5 sm:mt-0">
+            <button className="focus:outline-none bg-gray-700 hover:bg-red-900 text-white py-1 sm:py-2 px-4 rounded-lg mt-5 sm:mt-0 transition duration-500 ease-in-out">
               Read More
             </button>
           </Link>

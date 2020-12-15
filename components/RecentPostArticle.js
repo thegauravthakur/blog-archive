@@ -13,7 +13,9 @@ const RecentPostArticle = ({ post }) => {
         height={400}
         alt={""}
       />
-      <h2 className="col-span-2 text-md mt-3 font-semibold">{title}</h2>
+      <h2 className="col-span-2 text-md mt-3 font-semibold text-gray-700">
+        {title}
+      </h2>
     </div>
   );
 };

@@ -5,10 +5,12 @@ import Image from "next/image";
 import RecentPostArticle from "../components/RecentPostArticle";
 import Footer from "../components/Footer";
 import RecentPostList from "../components/RecentPostList";
-import { RecoilRoot } from "recoil";
+import { RecoilRoot, useRecoilValue } from "recoil";
+import { PostsState } from "../recoil/atom";
 
 export default function IndexPage() {
   const [loading, setLoading] = useState(true);
+  const posts = useRecoilValue(PostsState);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -23,7 +25,9 @@ export default function IndexPage() {
               </h1>
 
               <div className="grid grid-cols-2 lg:grid-cols-1 gap-5 lg:gap-0 px-3 lg:px-0">
-                <RecentPostList />
+                {posts.slice(0, 2).map((post) => (
+                  <RecentPostArticle key={post.id} post={post} />
+                ))}
               </div>
             </div>
           </div>

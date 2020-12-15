@@ -4,29 +4,29 @@ import { useRouter } from "next/router";
 const Nav = () => {
   const router = useRouter();
   return (
-    <nav className="flex justify-between px-5 md:px-10 lg:px-20 bg-gray-800 text-white ">
+    <nav className="flex justify-between px-5 md:px-10 lg:px-20 bg-white text-gray-900 shadow">
       <p
         onClick={() => router.push("/")}
-        className="self-center font-bold text-lg text-gray-300 select-none cursor-pointer"
+        className="self-center font-bold text-lg text-red-700 select-none cursor-pointer"
       >
         Gaurav's Blog
       </p>
-      <div className="grid grid-cols-4 hidden sm:block">
+      <div className="grid grid-cols-4 hidden sm:block ">
+        <button
+          onClick={() => router.push("/")}
+          className="py-4 px-8 border-b-4  border-white hover:border-red-700  focus:outline-none font-semibold"
+        >
+          Home
+        </button>
         <button
           onClick={() => {
             window.location.href = "https://gauravthakur.in";
           }}
-          className="py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none"
+          className="py-4 px-8 border-b-4  border-white hover:border-red-700  focus:outline-none font-semibold"
         >
           Portfolio
         </button>
-        <button className="py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none">
-          React
-        </button>
-        <button className="py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none">
-          C++
-        </button>
-        <button className="py-5 px-5 lg:px-10 hover:text-gray-800 hover:bg-white focus:outline-none">
+        <button className="py-4 px-8 border-b-4  border-white hover:border-red-700 hover:text-gray-800 hover:bg-white focus:outline-none font-semibold">
           JavaScript
         </button>
       </div>

@@ -1,7 +1,7 @@
 import "../styles/index.css";
 import Router from "next/router";
 import NProgress from "nprogress"; //nprogress module
-import "nprogress/nprogress.css";
+import "../styles/npprogress.css";
 import { RecoilRoot } from "recoil";
 
 NProgress.configure({ showSpinner: false });

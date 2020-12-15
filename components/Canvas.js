@@ -6,11 +6,12 @@ import PostCard from "./PostCard";
 import firebase from "../firebase/clientApp";
 import { useRecoilState } from "recoil";
 import { PostsState } from "../recoil/atom";
-
+import NProgress from "nprogress"; //nprogress module
 const Canvas = ({ loading, setLoading }) => {
   const [posts, setPosts] = useRecoilState(PostsState);
 
   useEffect(() => {
+    NProgress.start();
     const db = firebase.firestore();
     const usersReference = db.collection("posts");
     usersReference.get().then((querySnapshot) => {
@@ -20,11 +21,16 @@ const Canvas = ({ loading, setLoading }) => {
         temp.push(userDocData);
       });
       setLoading(false);
+      NProgress.done();
       setPosts(temp.reverse());
     });
   }, []);
   if (loading) {
-    return <h1>Page is loading...</h1>;
+    return (
+      <div className="col-span-4 mt-10 text-center ">
+        <h1 className="">Page Not Fount</h1>
+      </div>
+    );
   }
   return (
     <div className="bg-white  my-14  px-5 md:px-10 py-10 col-span-3 rounded-lg">
