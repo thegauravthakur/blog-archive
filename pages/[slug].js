@@ -8,14 +8,34 @@ import { useRouter } from "next/router";
 import firebase from "../firebase/clientApp";
 import parse from "html-react-parser";
 import styles from "../styles/postContent.module.css";
+import { useRecoilState } from "recoil";
+import { PostsState } from "../recoil/atom";
+import RecentPostList from "../components/RecentPostList";
 
 export default function IndexPage() {
   const router = useRouter();
   const pathname = router.query.slug;
   const [exist, setExist] = useState(true);
   const [loading, setLoading] = useState(true);
+  const [loading2, setLoading2] = useState(true);
   const [postDetail, setPostDetail] = useState({});
+  const [posts, setPosts] = useRecoilState(PostsState);
   const imageRef = useRef();
+  useEffect(() => {
+    if (posts.length === 0) {
+      const db = firebase.firestore();
+      const usersReference = db.collection("posts");
+      usersReference.get().then((querySnapshot) => {
+        const temp = [];
+        querySnapshot.forEach((userDoc) => {
+          const userDocData = userDoc.data();
+          temp.push(userDocData);
+        });
+        setLoading2(false);
+        setPosts(temp.reverse());
+      });
+    }
+  }, []);
   useEffect(() => {
     // console.log(window.location.href);
     if (pathname) {
@@ -31,7 +51,7 @@ export default function IndexPage() {
     }
   }, [pathname]);
 
-  if (loading) {
+  if (loading || loading2) {
     return (
       <div className="flex flex-col min-h-screen">
         <Nav />
@@ -85,8 +105,9 @@ export default function IndexPage() {
         <div className="py-5 bg-white px-2 md:px-10 mb-20 rounded-lg">
           <h2 className="text-2xl font-semibold py-5">Related Articles</h2>
           <div className="grid grid-cols-2 gap-3 sm:gap-5 md:gap-10">
-            <RecentPostArticle />
-            <RecentPostArticle />
+            {posts.slice(0, 2).map((post) => (
+              <RecentPostArticle post={post} />
+            ))}
           </div>
         </div>
       </div>

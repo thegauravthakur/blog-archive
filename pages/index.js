@@ -4,6 +4,8 @@ import Canvas from "../components/Canvas";
 import Image from "next/image";
 import RecentPostArticle from "../components/RecentPostArticle";
 import Footer from "../components/Footer";
+import RecentPostList from "../components/RecentPostList";
+import { RecoilRoot } from "recoil";
 
 export default function IndexPage() {
   const [loading, setLoading] = useState(true);
@@ -21,8 +23,7 @@ export default function IndexPage() {
               </h1>
 
               <div className="grid grid-cols-2 lg:grid-cols-1 gap-5 lg:gap-0 px-3 lg:px-0">
-                <RecentPostArticle />
-                <RecentPostArticle />
+                <RecentPostList />
               </div>
             </div>
           </div>

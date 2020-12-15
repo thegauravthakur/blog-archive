@@ -4,9 +4,11 @@ import { AiOutlineShop, AiOutlineTags } from "react-icons/ai";
 import { GoCommentDiscussion } from "react-icons/go";
 import PostCard from "./PostCard";
 import firebase from "../firebase/clientApp";
+import { useRecoilState } from "recoil";
+import { PostsState } from "../recoil/atom";
 
 const Canvas = ({ loading, setLoading }) => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useRecoilState(PostsState);
 
   useEffect(() => {
     const db = firebase.firestore();
