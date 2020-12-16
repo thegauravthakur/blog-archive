@@ -15,7 +15,7 @@ export default function IndexPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Nav />
-      <div className="lg:grid lg:grid-cols-4 px-2 md:px-10 lg:px-20 gap-10 flex-1">
+      <div className="lg:grid lg:grid-cols-4 px-2 md:px-10 lg:px-20 gap-10 flex-1 mt-20 mb-6">
         <Canvas loading={loading} setLoading={setLoading} />
         {!loading ? (
           <div className="rounded-lg">

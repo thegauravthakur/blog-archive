@@ -44,10 +44,10 @@ const PostCard = ({ postDetail }) => {
       <div className="grid grid-cols-1 sm:grid-cols-5 pt-5 gap-5 ">
         <div
           onClick={() => router.push(id)}
-          className="col-span-2 cursor-pointer"
+          className="col-span-3 sm:col-span-2 cursor-pointer"
         >
           <Image
-            className="rounded-lg"
+            className="rounded-lg self-center"
             src={postImage}
             height={400}
             width={700}

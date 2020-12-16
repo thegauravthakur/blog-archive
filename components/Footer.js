@@ -1,30 +1,28 @@
-import React from 'react';
-import { AiOutlineTwitter } from 'react-icons/ai';
-import { IoLogoInstagram, IoLogoFacebook } from 'react-icons/io';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import React from "react";
+import { AiOutlineTwitter } from "react-icons/ai";
+import { IoLogoInstagram, IoLogoFacebook } from "react-icons/io";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Footer = () => {
   const router = useRouter();
   return (
-    <div
-      className={`bg-gray-900 py-5 rounded-t-3xl`}
-    >
+    <div className={`bg-gray-900 py-5 rounded-t-3xl`}>
       <div className="flex justify-evenly w-32 mx-auto remove-touch-effect">
         <IoLogoFacebook
-          onClick={() => window.open('https://fb.com/gauravcodes', '_blank')}
+          onClick={() => window.open("https://fb.com/gauravcodes", "_blank")}
           size={35}
           className="cursor-pointer text-gray-300 hover:text-gray-400"
         />
         <AiOutlineTwitter
           onClick={() =>
-            window.open('https://twitter.com/gauravcodes', '_blank')
+            window.open("https://twitter.com/gauravcodes", "_blank")
           }
           size={35}
           className="cursor-pointer text-gray-300 hover:text-gray-400"
         />
         <IoLogoInstagram
-          onClick={() => window.open('https://instagram.com', '_blank')}
+          onClick={() => window.open("https://instagram.com", "_blank")}
           size={35}
           className="cursor-pointer text-gray-300 hover:text-gray-400"
         />
@@ -55,7 +53,7 @@ const Footer = () => {
         </p>
       </div>
       <p className="text-center text-gray-400">
-        Made with ❤ in India by{' '}
+        Made with ❤ in India by{" "}
         <Link href="https://gauravthakur.in">
           <a
             rel="noopener"

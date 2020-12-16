@@ -12,6 +12,10 @@ import { useRecoilState } from "recoil";
 import { PostsState } from "../recoil/atom";
 import RecentPostList from "../components/RecentPostList";
 import NProgress from "nprogress";
+import { MdContentCopy } from "react-icons/md";
+import { RiWhatsappFill } from "react-icons/ri";
+import { TiSocialFacebook } from "react-icons/ti";
+import { AiOutlineTwitter } from "react-icons/ai";
 
 export default function IndexPage() {
   const router = useRouter();
@@ -63,7 +67,7 @@ export default function IndexPage() {
     return (
       <div className="flex flex-col min-h-screen">
         <Nav />
-        <div className="flex-1 mt-10 text-center ">
+        <div className="flex-1 text-center mt-30">
           <h1 className="">Page is loading...</h1>
         </div>
         <Footer />
@@ -74,7 +78,7 @@ export default function IndexPage() {
     return (
       <div className="flex flex-col min-h-screen">
         <Nav />
-        <div className="flex-1 mt-10 text-center ">
+        <div className="flex-1 text-center mt-30">
           <h1 className="">Page Not Fount</h1>
         </div>
         <Footer />
@@ -84,7 +88,7 @@ export default function IndexPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Nav />
-      <div className="px-2 md:px-10 lg:px-20 gap-10 flex-1 max-w-5xl mx-auto">
+      <div className="px-2 md:px-10 lg:px-20 gap-10 flex-1 max-w-5xl mx-auto mt-20">
         <div className="bg-white  my-14  px-3 sm:px-5 md:px-10 py-10 col-span-3 rounded-lg">
           <h1 className={styles.title}>{postDetail.title}</h1>
           <div className=" border-t-2 border-b-2 border-black">
@@ -98,13 +102,18 @@ export default function IndexPage() {
             {parse(postDetail.body, {
               replace: (domNode) => {
                 if (domNode.name === "p") {
-                  if (domNode.children[0].name === "img") {
+                  const currentNode = domNode.children[0];
+                  if (currentNode.name === "img") {
+                    let heightCheck = false;
+                    let widthCheck = false;
+                    if ("width" in currentNode.attribs) widthCheck = true;
+                    if ("height" in currentNode.attribs) heightCheck = true;
                     return (
                       <div className="my-2">
                         <Image
-                          width={2000}
-                          height={1000}
-                          {...domNode.children[0].attribs}
+                          {...(!heightCheck && { height: 1000 })}
+                          {...(!widthCheck && { width: 2000 })}
+                          {...currentNode.attribs}
                         />
                       </div>
                     );
@@ -112,6 +121,29 @@ export default function IndexPage() {
                 }
               },
             })}
+          </div>
+          <h3 className="mb-5 font-semibold text-lgl">Sharing is Caring ❤</h3>
+          <div className="grid grid-cols-4 gap-0.5 md:gap-5  max-w-xl">
+            <button style={{ backgroundColor: "#3B5998" }} className="py-1">
+              <TiSocialFacebook
+                color={"white"}
+                size={25}
+                className={"mx-auto"}
+              />
+            </button>
+            <button style={{ backgroundColor: "#1DA1F2" }} className="py-1">
+              <AiOutlineTwitter
+                color={"white"}
+                size={22}
+                className={"mx-auto"}
+              />
+            </button>
+            <button style={{ backgroundColor: "#1FB457" }} className="py-1">
+              <RiWhatsappFill color={"white"} size={18} className={"mx-auto"} />
+            </button>
+            <button style={{ backgroundColor: "#323B43" }} className="py-1">
+              <MdContentCopy color={"white"} size={18} className={"mx-auto"} />
+            </button>
           </div>
         </div>
         <div className="py-5 bg-white px-2 md:px-10 mb-20 rounded-lg">

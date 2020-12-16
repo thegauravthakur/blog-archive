@@ -9,8 +9,11 @@
         font-size: 17px;
     }
 }
-.content > p {
+.content  p {
     padding-top: 20px;
+}
+.content  h2 {
+    @apply text-2xl font-semibold md:font-bold mt-5
 }
 .title {
     font-size: 44px;
