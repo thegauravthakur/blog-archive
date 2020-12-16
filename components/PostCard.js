@@ -7,14 +7,17 @@ import TextTruncate from "react-text-truncate";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { convertTimestampToDate } from "../utils/convertTimestampToDate";
 
 const PostCard = ({ postDetail }) => {
   const { postDescription, postImage, title, lastUpdated, id } = postDetail;
-  const lastUpdatedDay = lastUpdated.toDate().toString().split(" ")[0];
-  const lastUpdatedMonth = lastUpdated.toDate().toString().split(" ")[1];
-  const lastUpdatedYear = lastUpdated.toDate().toString().split(" ")[2];
+  const dateAndTime = convertTimestampToDate(lastUpdated);
+  const lastUpdatedDay = dateAndTime.date;
+  const lastUpdatedMonth = dateAndTime.month;
+  const lastUpdatedYear = dateAndTime.year;
   const router = useRouter();
   const isMd = useMediaQuery({ query: "(min-width: 1300px)" });
+
   return (
     <div className="mb-14">
       <h1
@@ -56,7 +59,7 @@ const PostCard = ({ postDetail }) => {
         </div>
         <div className="max-w-lg mx-auto col-span-3 flex flex-col justify-between items-start">
           <TextTruncate
-            line={isMd ? 5 : 3}
+            line={isMd ? 4 : 3}
             element="span"
             truncateText="…"
             text={postDescription}

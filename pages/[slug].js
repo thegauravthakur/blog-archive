@@ -1,84 +1,22 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import Nav from "../components/nav";
-import Canvas from "../components/Canvas";
 import RecentPostArticle from "../components/RecentPostArticle";
 import Footer from "../components/Footer";
-import { useRouter } from "next/router";
 import firebase from "../firebase/clientApp";
 import parse from "html-react-parser";
 import styles from "../styles/postContent.module.css";
-import { useRecoilState } from "recoil";
-import { PostsState } from "../recoil/atom";
-import RecentPostList from "../components/RecentPostList";
-import NProgress from "nprogress";
 import { MdContentCopy } from "react-icons/md";
 import { RiWhatsappFill } from "react-icons/ri";
 import { TiSocialFacebook } from "react-icons/ti";
 import { AiOutlineTwitter } from "react-icons/ai";
 
-export default function IndexPage() {
-  const router = useRouter();
-  const pathname = router.query.slug;
-  const [exist, setExist] = useState(true);
-  const [loading, setLoading] = useState(true);
-  const [loading2, setLoading2] = useState(true);
-  const [postDetail, setPostDetail] = useState({});
-  const [posts, setPosts] = useRecoilState(PostsState);
-
-  const imageRef = useRef();
-  useEffect(() => {
-    if (posts.length === 0) {
-      NProgress.start();
-      const db = firebase.firestore();
-      const usersReference = db.collection("posts");
-      usersReference.get().then((querySnapshot) => {
-        const temp = [];
-        querySnapshot.forEach((userDoc) => {
-          const userDocData = userDoc.data();
-          temp.push(userDocData);
-        });
-        setLoading2(false);
-        NProgress.done();
-        setPosts(temp.reverse());
-      });
-    } else {
-      setLoading2(false);
-    }
-  }, []);
-  useEffect(() => {
-    // console.log(window.location.href);
-    if (pathname) {
-      NProgress.start();
-      const db = firebase.firestore();
-      const ref = db.collection("posts").doc(pathname).get();
-      ref.then((snap) => {
-        if (!snap.exists) setExist(false);
-        else {
-          setPostDetail(snap.data());
-        }
-        setLoading(false);
-        NProgress.done();
-      });
-    }
-  }, [pathname]);
-
-  if (loading || loading2) {
+export default function IndexPage({ postDetail, errorCode, posts }) {
+  if (errorCode === 404) {
     return (
       <div className="flex flex-col min-h-screen">
         <Nav />
-        <div className="flex-1 text-center mt-30">
-          <h1 className="">Page is loading...</h1>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
-  if (!exist) {
-    return (
-      <div className="flex flex-col min-h-screen">
-        <Nav />
-        <div className="flex-1 text-center mt-30">
+        <div className="flex-1 text-center mt-32">
           <h1 className="">Page Not Fount</h1>
         </div>
         <Footer />
@@ -158,4 +96,45 @@ export default function IndexPage() {
       <Footer />
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  let errorCode = 200;
+  const { res } = context;
+  const { slug } = context.query;
+  res.statusCode = 200;
+  const db = firebase.firestore();
+  const usersReference = await db
+    .collection("posts")
+    .orderBy("lastUpdated", "desc")
+    .get();
+  const temp = [];
+  usersReference.forEach((userDoc) => {
+    const userDocData = userDoc.data();
+    let { lastUpdated } = userDocData;
+    temp.push({ ...userDocData, lastUpdated: lastUpdated.toString() });
+  });
+
+  const ref = await db.collection("posts").doc(slug).get();
+  if (!ref.exists) {
+    res.statusCode = 404;
+    errorCode = 404;
+    return {
+      props: {
+        posts: temp,
+        postDetail: {},
+        errorCode,
+      },
+    };
+  } else
+    return {
+      props: {
+        posts: temp,
+        postDetail: {
+          ...ref.data(),
+          lastUpdated: ref.data().lastUpdated.toString(),
+        },
+        errorCode,
+      },
+    };
 }
