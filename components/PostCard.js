@@ -19,13 +19,12 @@ const PostCard = ({ postDetail }) => {
   const isMd = useMediaQuery({ query: "(min-width: 1300px)" });
 
   return (
-    <div className="mb-14">
-      <h1
-        onClick={() => router.push(id)}
-        className="text-2xl font-semibold text-gray-700 hover:text-red-700 cursor-pointer transition duration-500 ease-in-out"
-      >
-        {title}
-      </h1>
+    <div className="mb-14 dark:text-gray-300">
+      <Link href={id}>
+        <h1 className="text-2xl font-semibold text-gray-700 dark:text-gray-300 dark:hover:text-blue-500 hover:text-red-700 cursor-pointer transition duration-500 ease-in-out">
+          {title}
+        </h1>
+      </Link>
       <div className="grid grid-cols-2 md:grid-cols-4 max-w-2xl pt-2">
         <div className="flex items-center gap-1">
           <IoCalendarOutline />
@@ -63,17 +62,17 @@ const PostCard = ({ postDetail }) => {
             element="span"
             truncateText="…"
             text={postDescription}
-            className="font-sans text-md leading-7"
+            className="font-sans text-md leading-7 dark:text-gray-400 text-gray-600"
             // textTruncateChild={<a href="#">Read on</a>}
           />
           <Link href={id}>
-            <button className="focus:outline-none bg-gray-700 hover:bg-red-900 text-white py-1 sm:py-2 px-4 rounded-lg mt-5 sm:mt-0 transition duration-500 ease-in-out">
+            <button className="focus:outline-none bg-gray-700 dark:bg-blue-600 dark:hover:bg-blue-700 hover:bg-red-900 text-white py-1 sm:py-2 px-4 rounded-lg mt-5 sm:mt-0 transition duration-500 ease-in-out">
               Read More
             </button>
           </Link>
         </div>
       </div>
-      <hr className="border-t-2 mt-5 w-56 mx-auto sm:hidden" />
+      <hr className="border-t-2 mt-14 w-56 mx-auto sm:hidden " />
     </div>
   );
 };

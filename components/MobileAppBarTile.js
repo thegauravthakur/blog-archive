@@ -5,9 +5,9 @@ const MobileAppBarTile = ({ name, onClick, loc }) => {
   return (
     <div
       onClick={onClick}
-      className="flex py-3 hover:bg-gray-100 cursor-pointer"
+      className="flex py-3 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer"
     >
-      <div className="h-6 w-6 text-red-600 ">
+      <div className="h-6 w-6 text-red-600 dark:text-gray-300 ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
@@ -21,7 +21,11 @@ const MobileAppBarTile = ({ name, onClick, loc }) => {
         </svg>
       </div>
       <p
-        className={`${router.pathname === loc ? "font-bold text-red-600" : ""}`}
+        className={`${
+          router.pathname === loc
+            ? "font-bold text-red-600 dark:text-blue-500"
+            : "dark:text-gray-300 text-gray-700"
+        }`}
       >
         {name}
       </p>

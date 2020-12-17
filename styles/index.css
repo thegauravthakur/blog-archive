@@ -8,28 +8,36 @@
 
 html,
 body {
-  background-color: #E0ECF0;
+    @apply dark:bg-black bg-gray-200
 }
+
 ul {
-  padding-bottom: 20px;
+    padding-bottom: 20px;
 }
+
 li {
-  list-style: circle;
-  display: list-item;
-  margin-left: 30px;
+    list-style: circle;
+    display: list-item;
+    margin-left: 30px;
 }
 
 /* Write your own custom component styles here */
 .btn-blue {
-  @apply px-4 py-2 font-bold text-white bg-blue-500 rounded;
-}
-.content{
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+    @apply px-4 py-2 font-bold text-white bg-blue-500 rounded;
 }
 
+.content {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+@layer utilities {
+    .progress {
+        background: red;
+    }
+}
 
 /* Start purging... */
 @tailwind utilities;
@@ -39,18 +47,33 @@ li {
 
 
 @font-face {
-  font-family: "BarlowSemiCondensed-Regular";
-  src: url("/assets/fonts/BarlowSemiCondensed-Regular.ttf");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+    font-family: "BarlowSemiCondensed-Regular";
+    src: url("/assets/fonts/BarlowSemiCondensed-Regular.ttf");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
 }
+
 @font-face {
-  font-family: "BarlowSemiCondensed-Bold";
-  src: url("/assets/fonts/BarlowSemiCondensed-Bold.ttf");
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
+    font-family: "BarlowSemiCondensed-Bold";
+    src: url("/assets/fonts/BarlowSemiCondensed-Bold.ttf");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+.title {
+    font-size: 44px;
+    font-weight: bold;
+    text-align: center;
+    font-family: "BarlowSemiCondensed-Bold", serif;
+    line-height: 53px;
+    margin-bottom: 50px;
+    @apply dark:text-gray-300  text-gray-700 select-none
+}
+
+.h2 {
+    @apply text-2xl font-semibold md:font-bold mt-5 dark:text-gray-300
 }
 
 

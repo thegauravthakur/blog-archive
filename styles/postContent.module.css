@@ -12,9 +12,7 @@
 .content  p {
     padding-top: 20px;
 }
-.content  h2 {
-    @apply text-2xl font-semibold md:font-bold mt-5
-}
+
 .title {
     font-size: 44px;
     font-weight: bold;
@@ -22,7 +20,7 @@
     font-family: "BarlowSemiCondensed-Bold", serif;
     line-height: 53px;
     margin-bottom: 50px;
-    @apply text-gray-700 select-none
+    @apply dark:text-gray-300  text-gray-700 select-none
 }
 
 @media (min-width: 768px) {
