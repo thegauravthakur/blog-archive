@@ -7,8 +7,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@kachkaev/react-inline-js": "^0.2.0",
     "firebase": "^8.2.0",
     "html-react-parser": "^1.0.0",
+    "mem": "^8.0.0",
     "next": "latest",
     "nprogress": "^0.2.0",
     "react": "^16.13.1",
@@ -16,7 +18,8 @@
     "react-icons": "^4.1.0",
     "react-responsive": "^8.2.0",
     "react-text-truncate": "^0.16.0",
-    "recoil": "^0.1.2"
+    "recoil": "^0.1.2",
+    "terser": "^5.5.1"
   },
   "devDependencies": {
     "autoprefixer": "10.0.2",

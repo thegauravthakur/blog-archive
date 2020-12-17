@@ -12,6 +12,10 @@ export default function IndexPage({ posts }) {
   return (
     <Fragment>
       <Head>
+        <meta
+          name="description"
+          content="Hi, welcome to my personal blog. I am a college student and a javascript enthusiast. In this blog, I'll share my knowledge related to various tech stack."
+        />
         <title>Gaurav's Blog</title>
       </Head>
       <div className="flex min-h-screen flex-col">
