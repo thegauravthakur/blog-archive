@@ -10,7 +10,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
           <link

@@ -28,21 +28,21 @@ const ThemeOptions = () => {
     >
       <a
         onClick={() => onClickHandler("dark")}
-        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 rounded-t-xl cursor-pointer"
+        className="dark:hover:text-blue-500 block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 rounded-t-xl cursor-pointer"
         role="menuitem"
       >
         Dark
       </a>
       <a
         onClick={() => onClickHandler("light")}
-        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 cursor-pointer"
+        className="dark:hover:text-blue-500 block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 cursor-pointer"
         role="menuitem"
       >
         Light
       </a>
       <a
         onClick={() => onClickHandler("system")}
-        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 cursor-pointer"
+        className="dark:hover:text-blue-500 block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 cursor-pointer"
         role="menuitem"
       >
         System

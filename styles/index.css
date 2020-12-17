@@ -45,15 +45,6 @@ li {
 
 /* Your own custom utilities */
 
-
-@font-face {
-    font-family: "BarlowSemiCondensed-Regular";
-    src: url("/assets/fonts/BarlowSemiCondensed-Regular.ttf");
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-}
-
 @font-face {
     font-family: "BarlowSemiCondensed-Bold";
     src: url("/assets/fonts/BarlowSemiCondensed-Bold.ttf");

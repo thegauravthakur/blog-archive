@@ -15,7 +15,7 @@ const Nav = () => {
     <Fragment>
       <nav className="flex justify-between px-5 md:px-10 lg:px-20 bg-white dark:bg-deepDarkGray text-gray-900 shadow fixed min-w-full z-40">
         <Link href={"/"}>
-          <p className="self-center font-bold text-xl text-red-700 dark:text-white select-none cursor-pointer">
+          <p className="self-center font-bold text-xl text-red-700 dark:text-white select-none cursor-pointer dark:hover:text-blue-500">
             Gaurav's Blog
           </p>
         </Link>
