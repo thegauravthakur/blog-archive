@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 const ThemeOptions = () => {
   const router = useRouter();
+
   const onClickHandler = (theme) => {
     switch (theme) {
       case "light":

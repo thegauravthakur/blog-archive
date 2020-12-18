@@ -8,6 +8,7 @@
 
 html,
 body {
+    scroll-padding-top: 70px;
     @apply dark:bg-black bg-gray-200
 }
 
@@ -68,3 +69,12 @@ li {
 }
 
 
+.mce-toc {
+    @apply bg-gray-200 dark:bg-transparent dark:border-blue-500 border-2 px-3 pt-1 rounded-xl my-3 md:my-5 max-w-md
+}
+.mce-toc h2 {
+    @apply pb-2 text-gray-600;
+}
+.mce-toc li {
+    @apply list-none hover:underline dark:text-gray-400 text-gray-700
+}

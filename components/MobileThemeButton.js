@@ -22,7 +22,7 @@ const MobileThemeButton = () => {
           !show ? "hidden" : ""
         } absolute right-0 w-56 rounded-xl dark:bg-darkGray shadow-lg bg-white ring-1 ring-black ring-opacity-5`}
       >
-        <ThemeOptions />
+        <ThemeOptions setShow={setShow} />
       </div>
     </div>
   );
