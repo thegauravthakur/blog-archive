@@ -67,7 +67,9 @@ li {
 .h2 {
     @apply text-2xl font-semibold md:font-bold mt-5 dark:text-gray-300
 }
-
+.h4 {
+    @apply font-semibold dark:text-gray-300 mt-5
+}
 
 .mce-toc {
     @apply bg-gray-200 dark:bg-transparent dark:border-blue-500 border-2 px-3 pt-1 rounded-xl my-3 md:my-5 max-w-md

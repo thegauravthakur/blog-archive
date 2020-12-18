@@ -41,6 +41,9 @@ export default function IndexPage({ postDetail, errorCode, posts }) {
             <div className={styles.content}>
               {parse(postDetail.body, {
                 replace: (domNode) => {
+                  if (domNode.name === "h4") {
+                    return (domNode.attribs.class = "h4");
+                  }
                   if (domNode.name === "h2") {
                     return (domNode.attribs.class = "h2");
                   }
