@@ -12,9 +12,6 @@
 .content  p {
     padding-top: 20px;
 }
-.content h4 {
-    @apply dark:text-gray-300
-}
 
 .title {
     font-size: 44px;

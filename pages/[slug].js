@@ -25,6 +25,34 @@ export default function IndexPage({ postDetail, errorCode, posts }) {
     <Fragment>
       <Head>
         <title>{postDetail.title}</title>
+        <link
+          rel="canonical"
+          href={`https://blog.gauravthakur.in/${postDetail.id}`}
+        />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={postDetail.title} />
+        <meta property="og:description" content={postDetail.metaDescription} />
+        <meta
+          property="og:url"
+          content={`https://blog.gauravthakur.in/${postDetail.id}`}
+        />
+        <meta property="og:site_name" content="Gaurav's Blog" />
+        <meta
+          property="article:publisher"
+          content="https://www.facebook.com/gauravcodes"
+        />
+        <meta
+          property="article:author"
+          content="https://www.facebook.com/gauravcodes"
+        />
+        <meta property="og:image" content={postDetail.postImage} />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="720" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@gauravcodes" />
+        <meta name="twitter:label1" content="Written by" />
+        <meta name="twitter:data1" content="Gaurav Thakur" />
       </Head>
       <div className="flex flex-col min-h-screen">
         <Nav />

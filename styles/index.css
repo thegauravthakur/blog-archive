@@ -80,3 +80,27 @@ li {
 .mce-toc li {
     @apply list-none hover:underline dark:text-gray-400 text-gray-700
 }
+.mce-toc a {
+    @apply dark:text-gray-300 ;
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    @apply dark:text-blue-500 text-red-500;
+}
+a:hover:after {
+    width:100%;
+    right: 0;
+}
+a:after {
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    right: 0;
+    position: absolute;
+    transition: width 0.5s ease 0s, right 0.5s ease 0s;
+    width: 0;
+    @apply dark:bg-blue-500 bg-red-500
+}

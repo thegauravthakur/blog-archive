@@ -22,32 +22,32 @@ const ThemeOptions = () => {
   };
   return (
     <div
-      className="py-1 dark:bg-darkGray rounded-xl"
+      className="dark:bg-darkGray rounded-xl px-0"
       role="menu"
       aria-orientation="vertical"
       aria-labelledby="options-menu"
     >
-      <a
+      <p
         onClick={() => onClickHandler("dark")}
         className="dark:hover:text-blue-500 block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 rounded-t-xl cursor-pointer"
         role="menuitem"
       >
         Dark
-      </a>
-      <a
+      </p>
+      <p
         onClick={() => onClickHandler("light")}
         className="dark:hover:text-blue-500 block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 cursor-pointer"
         role="menuitem"
       >
         Light
-      </a>
-      <a
+      </p>
+      <p
         onClick={() => onClickHandler("system")}
-        className="dark:hover:text-blue-500 block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 cursor-pointer"
+        className="dark:hover:text-blue-500 block px-4 py-2 text-sm text-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 cursor-pointer rounded-b-xl"
         role="menuitem"
       >
         System
-      </a>
+      </p>
     </div>
   );
 };
