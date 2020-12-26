@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Image from "next/image";
 import Nav from "../components/nav";
 import RecentPostArticle from "../components/RecentPostArticle";
@@ -8,8 +8,18 @@ import parse from "html-react-parser";
 import styles from "../styles/postContent.module.css";
 import SocialSharingButtons from "../components/SocialSharingButtons";
 import Head from "next/head";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import lightTheme from "../styles/editor-styles-light";
+import darkTheme from "../styles/editor-styles-dark";
+import CodeSection from "../components/CodeSection";
 
 export default function IndexPage({ postDetail, errorCode, posts }) {
+  const [dark, setDark] = useState(false);
+  useEffect(() => {
+    const temp = document.getElementsByTagName("html")[0].classList.length;
+    if (temp === 0) setDark(true);
+    else setDark(false);
+  }, []);
   if (errorCode === 404) {
     return (
       <div className="flex flex-col min-h-screen">
@@ -74,6 +84,15 @@ export default function IndexPage({ postDetail, errorCode, posts }) {
                   }
                   if (domNode.name === "h2") {
                     return (domNode.attribs.class = "h2");
+                  }
+                  if (domNode.name === "pre") {
+                    const lan = domNode.attribs.class.substr(
+                      9,
+                      domNode.attribs.class.length
+                    );
+                    return (
+                      <CodeSection dark={dark} domNode={domNode} lan={lan} />
+                    );
                   }
                   if (domNode.name === "p") {
                     const currentNode = domNode.children[0];
