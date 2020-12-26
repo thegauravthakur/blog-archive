@@ -38,11 +38,7 @@ const CodeSection = ({ lan, dark, domNode }) => {
         {text}
       </button>
       <div className="grid grid-cols-1">
-        <SyntaxHighlighter
-          className="w-full  break-words"
-          style={dark ? lightTheme : darkTheme}
-          language={lan}
-        >
+        <SyntaxHighlighter style={dark ? lightTheme : darkTheme} language={lan}>
           {body}
         </SyntaxHighlighter>
       </div>

@@ -102,7 +102,7 @@ export default function IndexPage({ postDetail, errorCode, posts }) {
                       if ("width" in currentNode.attribs) widthCheck = true;
                       if ("height" in currentNode.attribs) heightCheck = true;
                       return (
-                        <div className="my-2">
+                        <div className="mb-2 mt-8">
                           <Image
                             {...(!heightCheck && { height: 1000 })}
                             {...(!widthCheck && { width: 2000 })}
