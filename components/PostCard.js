@@ -66,7 +66,7 @@ const PostCard = ({ postDetail }) => {
             // textTruncateChild={<a href="#">Read on</a>}
           />
           <Link href={id}>
-            <button className="focus:outline-none bg-gray-700 dark:bg-blue-600 dark:hover:bg-blue-700 hover:bg-red-900 text-white py-1 sm:py-2 px-4 rounded-lg mt-5 sm:mt-0 transition duration-500 ease-in-out">
+            <button className="focus:outline-none bg-gray-700 dark:bg-blue-600 dark:hover:bg-blue-700 hover:bg-red-900 text-white py-1 sm:py-2 px-4 rounded-lg mt-5 sm:mt-0 transition  ease-in-out transform hover:-translate-y-1 duration-300 hover:scale-100">
               Read More
             </button>
           </Link>
