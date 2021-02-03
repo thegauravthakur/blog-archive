@@ -20,7 +20,7 @@ export default function IndexPage({ posts }) {
       </Head>
       <div className="flex min-h-screen flex-col">
         <Nav />
-        <div className="lg:grid lg:grid-cols-4 px-2 md:px-10 lg:px-20 gap-10 flex-1 mt-16 md:mt-20 md:mb-6">
+        <div className="lg:grid lg:grid-cols-4 px-2 md:px-10 lg:px-20 gap-10 flex-1 mt-16 md:mt-20 md:mb-6 max-w-10xl mx-auto">
           <Canvas posts={posts} loading={loading} setLoading={setLoading} />
           <div className="rounded-lg">
             <div className="bg-white my-14 md:px-5 py-10 rounded-lg dark:bg-deepDarkGray ">
