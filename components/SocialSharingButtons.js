@@ -26,7 +26,7 @@ const SocialSharingButtons = ({ postDetail }) => {
         <div className="grid grid-cols-4 gap-0.5 md:gap-5  max-w-xl">
           <button
             style={{ backgroundColor: "#3B5998" }}
-            className="py-1 transform hover:-translate-y-1 duration-300 hover:scale-100"
+            className="py-1 transform hover:-translate-y-1 duration-300 hover:scale-100 rounded"
             onClick={() =>
               window.open(
                 `https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`,
@@ -46,7 +46,7 @@ const SocialSharingButtons = ({ postDetail }) => {
               )
             }
             style={{ backgroundColor: "#1DA1F2" }}
-            className="py-1 transform hover:-translate-y-1 duration-300 hover:scale-100"
+            className="py-1 transform hover:-translate-y-1 duration-300 hover:scale-100 rounded"
           >
             <AiOutlineTwitter color={"white"} size={22} className={"mx-auto"} />
           </button>
@@ -59,14 +59,14 @@ const SocialSharingButtons = ({ postDetail }) => {
               )
             }
             style={{ backgroundColor: "#1FB457" }}
-            className="py-1 transform hover:-translate-y-1 duration-300 hover:scale-100"
+            className="py-1 transform hover:-translate-y-1 duration-300 hover:scale-100 rounded"
           >
             <RiWhatsappFill color={"white"} size={18} className={"mx-auto"} />
           </button>
           <button
             onClick={onCopyHandler}
             style={{ backgroundColor: "#323B43" }}
-            className="py-1 w-full h-full transform hover:-translate-y-1 duration-300 hover:scale-100 "
+            className="py-1 w-full h-full transform hover:-translate-y-1 duration-300 hover:scale-100 rounded "
           >
             <MdContentCopy color={"white"} size={18} className={"mx-auto"} />
           </button>

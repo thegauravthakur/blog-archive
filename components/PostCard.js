@@ -21,7 +21,7 @@ const PostCard = ({ postDetail }) => {
   return (
     <div className="mb-14 dark:text-gray-300">
       <Link href={id}>
-        <h1 className="text-2xl font-semibold text-gray-700 dark:text-gray-300 dark:hover:text-blue-500 hover:text-red-700 cursor-pointer transition duration-500 ease-in-out">
+        <h1 style={{maxWidth: 'max-content'}} className="text-2xl font-semibold text-gray-700 dark:text-gray-300 dark:hover:text-blue-500 hover:text-red-700 cursor-pointer transition duration-500 ease-in-out">
           {title}
         </h1>
       </Link>
