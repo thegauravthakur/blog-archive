@@ -12,8 +12,13 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import lightTheme from "../styles/editor-styles-light";
 import darkTheme from "../styles/editor-styles-dark";
 import CodeSection from "../components/CodeSection";
+import ImageDialog from '../components/ImageDialog';
 
 export default function IndexPage({ postDetail, errorCode, posts }) {
+  const [dialog, setDialog] = useState({
+    show: false,
+    activeImage: null,
+  });
   const [dark, setDark] = useState(false);
   useEffect(() => {
     const temp = document.getElementsByTagName("html")[0].classList.length;
@@ -104,6 +109,8 @@ export default function IndexPage({ postDetail, errorCode, posts }) {
                       return (
                         <div className="mb-2 mt-8">
                           <Image
+                            className='cursor-pointer'
+                            onClick={() => setDialog({activeImage: currentNode.attribs.src, show: true})}
                             {...(!heightCheck && { height: 1000 })}
                             {...(!widthCheck && { width: 2000 })}
                             {...currentNode.attribs}
@@ -128,7 +135,11 @@ export default function IndexPage({ postDetail, errorCode, posts }) {
             </div>
           </div>
         </div>
-
+        <ImageDialog
+          activeImage={dialog.activeImage}
+          dialog={dialog.show}
+          setDialog={setDialog}
+        />
         <Footer />
       </div>
     </Fragment>

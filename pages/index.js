@@ -12,13 +12,11 @@ export default function IndexPage({posts}) {
   return (
     <Fragment>
       <Head>
-        <!-- Primary Meta Tags -->
         <title>Welcome to Gaurav's Blog</title>
         <meta name="title" content="Welcome to Gaurav's Blog"/>
         <meta name="description"
               content="Hi, welcome to my personal blog. I am a college student and a javascript enthusiast. In this blog, I'll share my knowledge related to various tech stack."/>
 
-        <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="https://blog.gauravthakur.in/"/>
         <meta property="og:title" content="Welcome to Gaurav's Blog"/>
@@ -26,7 +24,6 @@ export default function IndexPage({posts}) {
               content="Hi, welcome to my personal blog. I am a college student and a javascript enthusiast. In this blog, I'll share my knowledge related to various tech stack."/>
         <meta property="og:image" content="https://i.ibb.co/NWbptGB/Welcome-to.png"/>
 
-        <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image"/>
         <meta property="twitter:url" content="https://blog.gauravthakur.in/"/>
         <meta property="twitter:title" content="Welcome to Gaurav's Blog"/>

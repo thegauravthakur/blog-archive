@@ -51,6 +51,7 @@ const PostCard = ({ postDetail }) => {
           <Image
             className="rounded-lg self-center"
             src={postImage}
+            objectFit='cover'
             height={400}
             width={700}
             alt={"post"}

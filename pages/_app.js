@@ -1,5 +1,6 @@
 import * as gtag from "../lib/gtag";
 import "../styles/index.css";
+import 'react-image-lightbox/style.css';
 import Router, { useRouter } from "next/router";
 import NProgress from "nprogress"; //nprogress module
 import "../styles/npprogress.css";
