@@ -8,7 +8,6 @@ import Head from 'next/head';
 
 export default function IndexPage({posts}) {
   const [loading, setLoading] = useState(true);
-
   return (
     <Fragment>
       <Head>

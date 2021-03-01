@@ -8,11 +8,9 @@ import parse from "html-react-parser";
 import styles from "../styles/postContent.module.css";
 import SocialSharingButtons from "../components/SocialSharingButtons";
 import Head from "next/head";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import lightTheme from "../styles/editor-styles-light";
-import darkTheme from "../styles/editor-styles-dark";
 import CodeSection from "../components/CodeSection";
 import ImageDialog from '../components/ImageDialog';
+import DefaultErrorPage from 'next/error';
 
 export default function IndexPage({ postDetail, errorCode, posts }) {
   const [dialog, setDialog] = useState({
@@ -25,17 +23,9 @@ export default function IndexPage({ postDetail, errorCode, posts }) {
     if (temp === 0) setDark(true);
     else setDark(false);
   }, []);
-  if (errorCode === 404) {
-    return (
-      <div className="flex flex-col min-h-screen">
-        <Nav />
-        <div className="flex-1 text-center mt-32">
-          <h1 className="">Page Not Fount</h1>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
+
+  if (errorCode !== 200) return <DefaultErrorPage statusCode={errorCode}  />
+
   return (
     <Fragment>
       <Head>
