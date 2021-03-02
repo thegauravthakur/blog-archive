@@ -26,20 +26,20 @@ const PostCard = ({postDetail}) => {
           {title}
         </h1>
       </Link>
-      <div className="grid grid-cols-2 md:grid-cols-4 max-w-2xl pt-2">
-        <div className="flex items-center gap-1">
+      <div className="grid grid-cols-2 md:grid-cols-4 max-w-xl pt-1.5">
+        <div  className="flex items-center gap-1 cursor-pointer hover:text-red-600 dark:hover:text-blue-400 px-2 rounded-xl hover:bg-gray-100 py-0.5 dark:hover:bg-gray-700 w-max transition duration-300 ease-in-out">
           <IoCalendarOutline/>
           <p>{`${lastUpdatedMonth} ${lastUpdatedDay}, ${lastUpdatedYear}`}</p>
         </div>
-        <div onClick={() => router.push(`/tag/${tag?.main}`)} className="flex items-center gap-1 cursor-pointer hover:text-red-600 dark:hover:text-blue-600 transition duration-300 ease-in-out">
+        <div onClick={() => router.push(`/tag/${tag?.main}`)} className="flex items-center gap-1 cursor-pointer hover:text-red-600 dark:hover:text-blue-400 px-2 rounded-xl hover:bg-gray-100 py-0.5 dark:hover:bg-gray-700 w-max transition duration-300 ease-in-out">
           <AiOutlineTags/>
           {tag?.main ? <p>{tag.main}</p> : <p>No tag</p>}
         </div>
-        <div className="flex items-center gap-1">
+        <div  className="flex items-center gap-1 cursor-pointer hover:text-red-600 dark:hover:text-blue-400 px-2 rounded-xl hover:bg-gray-100 py-0.5 dark:hover:bg-gray-700 w-max transition duration-300 ease-in-out">
           <AiOutlineShareAlt/>
           <p>No Shares</p>
         </div>
-        <div className="flex items-center gap-1">
+        <div  className="flex items-center gap-1 cursor-pointer hover:text-red-600 dark:hover:text-blue-400 px-2 rounded-xl hover:bg-gray-100 py-0.5 dark:hover:bg-gray-700 w-max transition duration-300 ease-in-out">
           <GoCommentDiscussion/>
           <p>No Comments</p>
         </div>

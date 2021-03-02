@@ -15,7 +15,7 @@ const Nav = () => {
     <Fragment>
       <nav className="flex justify-between px-5 md:px-10 lg:px-20 bg-white dark:bg-deepDarkGray text-gray-900 shadow fixed min-w-full z-40">
         <Link href={"/"}>
-          <p className="self-center font-bold text-xl text-red-700 dark:text-white select-none cursor-pointer dark:hover:text-blue-500">
+          <p className="self-center font-bold text-xl text-red-700 dark:text-white select-none cursor-pointer dark:hover:text-blue-500 transition duration-300 ease-in-out">
             Gaurav's Blog
           </p>
         </Link>
@@ -67,7 +67,7 @@ const Nav = () => {
             <IoCloseOutline size={30} />
           </button>
         </div>
-        {/*<p className="uppercase text-gray-600 py-2">Furniture</p>*/}
+
         <MobileAppBarTile
           loc={"/"}
           name={"Home"}
@@ -80,7 +80,7 @@ const Nav = () => {
             window.location.href = "https://gauravthakur.in";
           }}
         />
-        {/*<p className="uppercase text-gray-600 py-2">Features</p>*/}
+
         <MobileAppBarTile
           loc={"/About Us"}
           name={"About Us"}
