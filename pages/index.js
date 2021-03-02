@@ -58,22 +58,22 @@ export default function IndexPage({posts}) {
               <h1 className="text-xl pb-5 font-semibold text-center lg:text-left dark:text-gray-300">
                 Featured Articles
               </h1>
+              {sidebarLoading && (
+                <div className='grid grid-cols-2 gap-5 lg:grid-cols-1'>
+                  {[...Array(featuredPostId.length)].map((value, i) => (
+                    <div key={i} className="mb-8 animate-pulse">
+                      <div className="h-4 bg-gray-600 rounded my-1"/>
+                      <div className="h-4 bg-gray-600 rounded my-1"/>
+                      <div className="h-4 bg-gray-600 rounded my-1"/>
+                      <div className="h-4 bg-gray-600 rounded my-1"/>
+                      <div className="h-4 bg-gray-600 rounded my-1"/>
+                      <div className="h-4 bg-gray-600 rounded my-1"/>
+                      <div className="h-4 bg-gray-600 rounded my-1"/>
+                    </div>
+                  ))}
+                </div>
+              )}
               <div className="grid grid-cols-2 lg:grid-cols-1 gap-5 lg:gap-0 px-3 lg:px-0 ">
-                {sidebarLoading && (
-                  <div>
-                    {[...Array(featuredPostId.length)].map((value, i) => (
-                      <div key={i} className="mb-8 animate-pulse">
-                        <div className="h-4 bg-gray-600 rounded my-1"/>
-                        <div className="h-4 bg-gray-600 rounded my-1"/>
-                        <div className="h-4 bg-gray-600 rounded my-1"/>
-                        <div className="h-4 bg-gray-600 rounded my-1"/>
-                        <div className="h-4 bg-gray-600 rounded my-1"/>
-                        <div className="h-4 bg-gray-600 rounded my-1"/>
-                        <div className="h-4 bg-gray-600 rounded my-1"/>
-                      </div>
-                    ))}
-                  </div>
-                )}
                 {featuredPost.map(post => (
                   <RecentPostArticle length={featuredPostId.length} loading={sidebarLoading} key={post.id} post={post}/>
                 ))}
