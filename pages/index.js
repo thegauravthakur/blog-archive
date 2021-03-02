@@ -10,15 +10,19 @@ export default function IndexPage({posts}) {
   const [loading, setLoading] = useState(true);
   const featuredPostId = ['everyday-jounal', 'best-cpp-books-in-2021'];
   const [featuredPost, setFeaturedPost] = useState([]);
-  const [sidebarLoading, setSidebarLoading] = useState(false);
+  const [sidebarLoading, setSidebarLoading] = useState(true);
 
   useEffect(() => {
     const temp = [];
     const getFeaturedPost = async () => {
+      setSidebarLoading(true);
       await firebase.firestore().collection('posts').doc('everyday-journal').get().then(d => temp.push(d.data()));
       await firebase.firestore().collection('posts').doc('best-cpp-books-in-2021').get().then(d => temp.push(d.data()));
     }
-    getFeaturedPost().then(() => setFeaturedPost(temp));
+    getFeaturedPost().then(() => {
+      setFeaturedPost(temp)
+      setSidebarLoading(false);
+    });
     // firebase.firestore().collection('posts').doc(featuredPostId[1]).get().then(d => setFeaturedPost([...featuredPost, d.data()])).then(() => console.log(featuredPost));
   }, [])
 
@@ -55,9 +59,24 @@ export default function IndexPage({posts}) {
                 Featured Articles
               </h1>
               <div className="grid grid-cols-2 lg:grid-cols-1 gap-5 lg:gap-0 px-3 lg:px-0 ">
-                {featuredPost.map(post => {
-                  return <RecentPostArticle key={post.id} post={post}/>
-                })}
+                {sidebarLoading && (
+                  <div>
+                    {[...Array(featuredPostId.length)].map((value, i) => (
+                      <div key={i} className="mb-8 animate-pulse">
+                        <div className="h-4 bg-gray-600 rounded my-1"/>
+                        <div className="h-4 bg-gray-600 rounded my-1"/>
+                        <div className="h-4 bg-gray-600 rounded my-1"/>
+                        <div className="h-4 bg-gray-600 rounded my-1"/>
+                        <div className="h-4 bg-gray-600 rounded my-1"/>
+                        <div className="h-4 bg-gray-600 rounded my-1"/>
+                        <div className="h-4 bg-gray-600 rounded my-1"/>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {featuredPost.map(post => (
+                  <RecentPostArticle length={featuredPostId.length} loading={sidebarLoading} key={post.id} post={post}/>
+                ))}
               </div>
             </div>
           </div>
