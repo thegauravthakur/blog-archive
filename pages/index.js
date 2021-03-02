@@ -1,5 +1,5 @@
 import Nav from '../components/nav';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Canvas from '../components/Canvas';
 import RecentPostArticle from '../components/RecentPostArticle';
 import Footer from '../components/Footer';
@@ -8,6 +8,20 @@ import Head from 'next/head';
 
 export default function IndexPage({posts}) {
   const [loading, setLoading] = useState(true);
+  const featuredPostId = ['everyday-jounal', 'best-cpp-books-in-2021'];
+  const [featuredPost, setFeaturedPost] = useState([]);
+  const [sidebarLoading, setSidebarLoading] = useState(false);
+
+  useEffect(() => {
+    const temp = [];
+    const getFeaturedPost = async () => {
+      await firebase.firestore().collection('posts').doc('everyday-journal').get().then(d => temp.push(d.data()));
+      await firebase.firestore().collection('posts').doc('best-cpp-books-in-2021').get().then(d => temp.push(d.data()));
+    }
+    getFeaturedPost().then(() => setFeaturedPost(temp));
+    // firebase.firestore().collection('posts').doc(featuredPostId[1]).get().then(d => setFeaturedPost([...featuredPost, d.data()])).then(() => console.log(featuredPost));
+  }, [])
+
   return (
     <Fragment>
       <Head>
@@ -38,12 +52,12 @@ export default function IndexPage({posts}) {
           <div className="rounded-lg">
             <div className="bg-white my-14 md:px-5 py-10 rounded-lg dark:bg-deepDarkGray ">
               <h1 className="text-xl pb-5 font-semibold text-center lg:text-left dark:text-gray-300">
-                Recent Posts
+                Featured Articles
               </h1>
               <div className="grid grid-cols-2 lg:grid-cols-1 gap-5 lg:gap-0 px-3 lg:px-0 ">
-                {posts.slice(0, 2).map((post) => (
-                  <RecentPostArticle key={post.id} post={post}/>
-                ))}
+                {featuredPost.map(post => {
+                  return <RecentPostArticle key={post.id} post={post}/>
+                })}
               </div>
             </div>
           </div>
