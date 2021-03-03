@@ -27,26 +27,30 @@ const PostCard = ({postDetail}) => {
         </h1>
       </Link>
       <div className="grid grid-cols-2 md:grid-cols-4 max-w-xl pt-1.5">
-        <div  className="flex items-center gap-1 cursor-pointer hover:text-red-600 dark:hover:text-blue-400 px-2 rounded-xl hover:bg-gray-100 py-0.5 dark:hover:bg-gray-700 w-max transition duration-300 ease-in-out">
+        <div
+          className="flex items-center gap-1 cursor-pointer hover:text-red-600 dark:hover:text-blue-400 px-2 rounded-xl hover:bg-gray-100 py-0.5 dark:hover:bg-gray-700 w-max transition duration-300 ease-in-out">
           <IoCalendarOutline/>
           <p>{`${lastUpdatedMonth} ${lastUpdatedDay}, ${lastUpdatedYear}`}</p>
         </div>
-        <div onClick={() => router.push(`/tag/${tag?.main}`)} className="flex items-center gap-1 cursor-pointer hover:text-red-600 dark:hover:text-blue-400 px-2 rounded-xl hover:bg-gray-100 py-0.5 dark:hover:bg-gray-700 w-max transition duration-300 ease-in-out">
+        <div onClick={() => router.push(`/tag/${tag?.main}`)}
+             className="flex items-center gap-1 cursor-pointer hover:text-red-600 dark:hover:text-blue-400 px-2 rounded-xl hover:bg-gray-100 py-0.5 dark:hover:bg-gray-700 w-max transition duration-300 ease-in-out">
           <AiOutlineTags/>
           {tag?.main ? <p>{tag.main}</p> : <p>No tag</p>}
         </div>
-        <div  className="flex items-center gap-1 cursor-pointer hover:text-red-600 dark:hover:text-blue-400 px-2 rounded-xl hover:bg-gray-100 py-0.5 dark:hover:bg-gray-700 w-max transition duration-300 ease-in-out">
+        <div
+          className="flex items-center gap-1 cursor-pointer hover:text-red-600 dark:hover:text-blue-400 px-2 rounded-xl hover:bg-gray-100 py-0.5 dark:hover:bg-gray-700 w-max transition duration-300 ease-in-out">
           <AiOutlineShareAlt/>
           <p>No Shares</p>
         </div>
-        <div  className="flex items-center gap-1 cursor-pointer hover:text-red-600 dark:hover:text-blue-400 px-2 rounded-xl hover:bg-gray-100 py-0.5 dark:hover:bg-gray-700 w-max transition duration-300 ease-in-out">
+        <div
+          className="flex items-center gap-1 cursor-pointer hover:text-red-600 dark:hover:text-blue-400 px-2 rounded-xl hover:bg-gray-100 py-0.5 dark:hover:bg-gray-700 w-max transition duration-300 ease-in-out">
           <GoCommentDiscussion/>
           <p>No Comments</p>
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-5 pt-5 gap-5 ">
         <div
-          onClick={() => router.push(id)}
+          onClick={() => router.push('/' + id)}
           className="col-span-3 sm:col-span-2 cursor-pointer"
         >
           <Image
@@ -67,7 +71,7 @@ const PostCard = ({postDetail}) => {
             className="font-sans text-md leading-7 dark:text-gray-400 text-gray-600"
             // textTruncateChild={<a href="#">Read on</a>}
           />
-          <Link href={id}>
+          <Link href={'/' + id}>
             <button
               className="focus:outline-none bg-gray-700 dark:bg-blue-600 dark:hover:bg-blue-700 hover:bg-red-900 text-white py-1 sm:py-2 px-4 rounded-lg mt-5 sm:mt-0 transition  ease-in-out transform hover:-translate-y-1 duration-300 hover:scale-100">
               Read More
