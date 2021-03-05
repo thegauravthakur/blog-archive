@@ -11,6 +11,7 @@
     "@kachkaev/react-inline-js": "^0.2.0",
     "firebase": "^8.2.0",
     "html-react-parser": "^1.0.0",
+    "md5": "^2.3.0",
     "next": "latest",
     "nprogress": "^0.2.0",
     "react": "^16.13.1",

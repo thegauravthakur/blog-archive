@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import app from "../firebase/clientApp";
+import { formattedDate } from "../lib/formattedDate";
+
 function Comment({ avatar, name, time, comment }) {
   return (
     <div className="dark:text-gray-300 ring-1 ring-red-600 dark:ring-gray-600 py-5 px-5 mt-10 rounded">
@@ -9,7 +13,7 @@ function Comment({ avatar, name, time, comment }) {
         />
         <div className="ml-8">
           <p className="font-semibold text-lg">{name}</p>
-          <p>{time}</p>
+          <p>{formattedDate(time)}</p>
         </div>
       </div>
       <p className="mt-5">{comment}</p>
@@ -17,41 +21,27 @@ function Comment({ avatar, name, time, comment }) {
   );
 }
 
-export function CommentSection() {
+export function CommentSection({ comments, setComments, id }) {
+  useEffect(() => {
+    const getData = async () => {
+      const data = await app.firestore().collection("comments").doc(id).get();
+      if (data.exists) {
+        setComments(data.data().comment ? data.data().comment : []);
+      }
+    };
+    getData().then();
+  }, []);
   return (
     <div className="mb-5">
-      <Comment
-        time="24th March, 2020"
-        name="Gaurav Thakur"
-        avatar="https://www.gravatar.com/avatar/5dab5059b885ef758fdd8f1b724d6434"
-        comment={
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci autem delectus deserunt doloremque eaque ex explicabo impedit ipsa iste nesciunt nostrum numquam omnis placeat qui quidem rerum, similique temporibus, ut veritatis vero. Ad culpa earum et facilis laudantium nemo officia perferendis placeat quaerat quibusdam quis quod recusandae velit, veniam vero!"
-        }
-      />
-      <Comment
-        time="24th March, 2020"
-        name="Gaurav Thakur"
-        avatar="https://www.gravatar.com/avatar/5dab5059b885ef758fdd8f1b724d6434"
-        comment={
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci autem delectus deserunt doloremque eaque ex explicabo impedit ipsa iste nesciunt nostrum numquam omnis placeat qui quidem rerum, similique temporibus, ut veritatis vero. Ad culpa earum et facilis laudantium nemo officia perferendis placeat quaerat quibusdam quis quod recusandae velit, veniam vero!"
-        }
-      />
-      <Comment
-        time="24th March, 2020"
-        name="Gaurav Thakur"
-        avatar="https://www.gravatar.com/avatar/5dab5059b885ef758fdd8f1b724d6434"
-        comment={
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci autem delectus deserunt doloremque eaque ex explicabo impedit ipsa iste nesciunt nostrum numquam omnis placeat qui quidem rerum, similique temporibus, ut veritatis vero. Ad culpa earum et facilis laudantium nemo officia perferendis placeat quaerat quibusdam quis quod recusandae velit, veniam vero!"
-        }
-      />
-      <Comment
-        time="24th March, 2020"
-        name="Gaurav Thakur"
-        avatar="https://www.gravatar.com/avatar/5dab5059b885ef758fdd8f1b724d6434"
-        comment={
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci autem delectus deserunt doloremque eaque ex explicabo impedit ipsa iste nesciunt nostrum numquam omnis placeat qui quidem rerum, similique temporibus, ut veritatis vero. Ad culpa earum et facilis laudantium nemo officia perferendis placeat quaerat quibusdam quis quod recusandae velit, veniam vero!"
-        }
-      />
+      {comments.map((comment) => (
+        <Comment
+          key={comment.id}
+          time={comment.time}
+          name={comment.name}
+          avatar={`https://avatars.dicebear.com/api/bottts/${comment.id}.svg`}
+          comment={comment.comment}
+        />
+      ))}
     </div>
   );
 }
