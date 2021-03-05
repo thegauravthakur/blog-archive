@@ -71,7 +71,10 @@ export default function IndexPage({ postDetail, errorCode, posts }) {
               <div className="grid grid-cols-3 py-2 max-w-md text-center mx-auto">
                 <p>Nov 20, 2020</p>
                 <p>Gaurav Thakur</p>
-                <p>No Comments</p>
+                <p>
+                  {comments.length}{" "}
+                  {comments.length > 1 ? "Comments" : "Comment"}
+                </p>
               </div>
             </div>
             <div className={styles.content}>
@@ -132,18 +135,18 @@ export default function IndexPage({ postDetail, errorCode, posts }) {
               ))}
             </div>
           </div>
-          {comments.length > 0 && (
-            <div className="py-5 bg-white dark:bg-deepDarkGray px-2 md:px-10 mb-14 md:mb-20 rounded-lg">
-              <h2 className="text-2xl font-semibold pt-5 dark:text-gray-300">
-                {comments.length} Comments
-              </h2>
-              <CommentSection
-                id={postDetail.id}
-                comments={comments}
-                setComments={setComments}
-              />
-            </div>
-          )}
+
+          <div className="py-5 bg-white dark:bg-deepDarkGray px-2 md:px-10 mb-14 md:mb-20 rounded-lg">
+            <h2 className="text-2xl font-semibold pt-5 dark:text-gray-300">
+              {comments.length} {comments.length > 1 ? "Comments" : "Comment"}
+            </h2>
+            <CommentSection
+              id={postDetail.id}
+              comments={comments}
+              setComments={setComments}
+            />
+          </div>
+
           <div className="py-5 bg-white dark:bg-deepDarkGray px-2 md:px-10 mb-14 md:mb-20 rounded-lg">
             <h2 className="text-2xl font-semibold pt-5 dark:text-gray-300">
               Add a comment

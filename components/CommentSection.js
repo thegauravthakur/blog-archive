@@ -11,9 +11,9 @@ function Comment({ avatar, name, time, comment }) {
           alt={""}
           src={avatar}
         />
-        <div className="ml-8">
+        <div className="ml-5">
           <p className="font-semibold text-lg">{name}</p>
-          <p>{formattedDate(time)}</p>
+          <p className="text-gray-400">{formattedDate(time)}</p>
         </div>
       </div>
       <p className="mt-5">{comment}</p>
