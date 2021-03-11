@@ -126,7 +126,10 @@ export async function getServerSideProps(context) {
   usersReference.forEach((userDoc) => {
     const userDocData = userDoc.data();
     let { lastUpdated } = userDocData;
-    temp.push({ ...userDocData, lastUpdated: lastUpdated.toString() });
+    temp.push({
+      ...userDocData,
+      lastUpdated: lastUpdated.toString(),
+    });
   });
 
   return { props: { posts: temp } };

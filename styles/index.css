@@ -69,8 +69,13 @@ li {
 .h2 {
     @apply text-2xl font-semibold md:font-bold mt-5 dark:text-gray-300
 }
+
 .h4 {
     @apply font-semibold dark:text-gray-300 mt-5
+}
+
+.h3 {
+    @apply font-semibold text-xl font-semibold dark:text-gray-300 mt-5
 }
 
 .mce-toc {

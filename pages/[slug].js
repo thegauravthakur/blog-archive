@@ -14,7 +14,7 @@ import DefaultErrorPage from "next/error";
 import { AddComment } from "../components/AddComment";
 import { CommentSection } from "../components/CommentSection";
 
-export default function IndexPage({ postDetail, errorCode, posts }) {
+export default function IndexPage({ postDetail, errorCode, posts, ref }) {
   const [comments, setComments] = useState([]);
   const [dialog, setDialog] = useState({
     show: false,
@@ -82,6 +82,9 @@ export default function IndexPage({ postDetail, errorCode, posts }) {
                 replace: (domNode) => {
                   if (domNode.name === "h4") {
                     return (domNode.attribs.class = "h4");
+                  }
+                  if (domNode.name === "h3") {
+                    return (domNode.attribs.class = "h3");
                   }
                   if (domNode.name === "h2") {
                     return (domNode.attribs.class = "h2");
