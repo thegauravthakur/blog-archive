@@ -78,6 +78,9 @@ li {
     @apply font-semibold text-xl font-semibold dark:text-gray-300 mt-5
 }
 
+em {
+    @apply text-black dark:text-gray-300;
+}
 .mce-toc {
     @apply bg-gray-200 dark:bg-transparent dark:border-blue-500 border-2 px-3 pt-1 rounded-xl my-3 md:my-5 max-w-md
 }
